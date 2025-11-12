@@ -39,9 +39,15 @@ console.log(calculateTax(50000000,2020))
 
 let employee :{
     id:number,
-   readonly name:string
+   readonly name:string,
+   retire:(date:Date) => void
 }
-= {id:1,name:"cyiza"}
-// employee.name = "Mosh"
+= {
+    id:1,
+    name:"cyiza",
+    retire:(date:Date)=>{
+        console.log(date)
+    }
+}
 console.log(employee)
 
