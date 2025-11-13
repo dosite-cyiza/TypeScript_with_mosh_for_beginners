@@ -61,4 +61,20 @@ let quantity = 50;
 console.log(quantity);
 let gender = 'Female';
 console.log(gender);
+function greet(name) {
+    if (name)
+        console.log(name.toUpperCase());
+    else
+        console.log("Hola");
+}
+console.log(greet(undefined));
+function getCustomer(id) {
+    return id === 0 ? null : { birthday: new Date() };
+}
+let customer = getCustomer(3);
+console.log(customer?.birthday?.getFullYear());
+let consumers = [2];
+console.log(consumers?.[0]);
+let log = null;
+log?.('a');
 //# sourceMappingURL=index.js.map

@@ -122,3 +122,28 @@ else
 }
 console.log(greet(undefined))
 
+// Optional chaining
+
+type Customer = {
+    birthday?:Date
+};
+
+function getCustomer (id:number) :Customer | null | undefined {
+    return id === 0? null : {birthday:new Date()}
+}
+let customer = getCustomer(3);
+// if(customer !== null && customer !== undefined) /* in the easy way we can remove this if statement
+                                                    //  then use this following way: 
+ //Optional property access operator. 
+console.log(customer?.birthday?.getFullYear()) // This (?.) is called optional property access operator.
+
+// Optional element access operator (This is useful when you are working with arrays)
+let consumers:number[] |null = [2]
+// if(consumers !== null && consumers !== undefined)
+console.log(consumers?.[0])
+
+//Optional call
+
+let log :any = null
+log?.('a')
+
