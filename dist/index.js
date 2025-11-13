@@ -52,4 +52,13 @@ function kgToLbs(weight) {
 }
 console.log(kgToLbs(10));
 console.log(kgToLbs('10'));
+let textbox = {
+    drag: () => { },
+    resize: () => { }
+};
+console.log(textbox);
+let quantity = 50;
+console.log(quantity);
+let gender = 'Female';
+console.log(gender);
 //# sourceMappingURL=index.js.map

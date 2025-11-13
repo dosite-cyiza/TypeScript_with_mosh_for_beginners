@@ -98,5 +98,16 @@ let textbox : UIWidget ={
     drag: () =>{},
     resize: () => {}
 }
+console.log(textbox)
 
-//
+// Literal type
+
+// literal (exact,spaecific)
+type Quantity = 50 | 100
+let quantity : Quantity = 50
+console.log(quantity)
+
+
+type Gender = 'Male' | 'Female'
+let gender : Gender = 'Female'
+console.log(gender)
