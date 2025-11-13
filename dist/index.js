@@ -28,6 +28,14 @@ function calculateTax(income, taxYear) {
     return income * 3;
 }
 console.log(calculateTax(50000000, 2020));
+let employe = {
+    id: 1,
+    name: "cyiza",
+    retire: (date) => {
+        console.log(date);
+    }
+};
+console.log(employe);
 let employee = {
     id: 1,
     name: "cyiza",
@@ -36,4 +44,37 @@ let employee = {
     }
 };
 console.log(employee);
+function kgToLbs(weight) {
+    if (typeof weight === 'number')
+        return weight * 2.2;
+    else
+        return parseInt(weight) * 8;
+}
+console.log(kgToLbs(10));
+console.log(kgToLbs('10'));
+let textbox = {
+    drag: () => { },
+    resize: () => { }
+};
+console.log(textbox);
+let quantity = 50;
+console.log(quantity);
+let gender = 'Female';
+console.log(gender);
+function greet(name) {
+    if (name)
+        console.log(name.toUpperCase());
+    else
+        console.log("Hola");
+}
+console.log(greet(undefined));
+function getCustomer(id) {
+    return id === 0 ? null : { birthday: new Date() };
+}
+let customer = getCustomer(3);
+console.log(customer?.birthday?.getFullYear());
+let consumers = [2];
+console.log(consumers?.[0]);
+let log = null;
+log?.('a');
 //# sourceMappingURL=index.js.map

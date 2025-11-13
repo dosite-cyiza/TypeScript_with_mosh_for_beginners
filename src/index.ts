@@ -37,7 +37,7 @@ console.log(calculateTax(50000000,2020))
 
 // Objects
 
-let employee :{
+let employe :{
     id:number,
    readonly name:string,
    retire:(date:Date) => void
@@ -49,5 +49,101 @@ let employee :{
         console.log(date)
     }
 }
+console.log(employe)
+
+// Type aliases
+type Employee = {
+    
+    id:number,
+    readonly name:string,
+    retire:(date:Date) => void
+}
+
+let employee : Employee = {
+    id:1,
+    name:"cyiza",
+    retire:(date:Date)=>{
+        console.log(date)
+    }
+}
 console.log(employee)
+
+// Union Types
+
+function kgToLbs(weight: number | string){
+    // Narrowing (This is process that help to specify the type)
+
+    if(typeof weight === 'number')
+        return weight * 2.2
+    else
+        return parseInt(weight)*8
+
+}
+console.log(kgToLbs(10))
+console.log(kgToLbs('10'))
+
+// Type intersection
+
+type Draggable = {
+    drag:() => void
+}
+
+type Resizable ={
+    resize :() =>void
+}
+
+type UIWidget = Draggable & Resizable
+
+let textbox : UIWidget ={
+    drag: () =>{},
+    resize: () => {}
+}
+console.log(textbox)
+
+// Literal type
+
+// literal (exact,spaecific)
+type Quantity = 50 | 100
+let quantity : Quantity = 50
+console.log(quantity)
+
+
+type Gender = 'Male' | 'Female'
+let gender : Gender = 'Female'
+console.log(gender)
+
+//Nullable type
+
+function greet (name:string | null | undefined){
+    if (name)
+    console.log(name.toUpperCase())
+else
+    console.log("Hola")
+}
+console.log(greet(undefined))
+
+// Optional chaining
+
+type Customer = {
+    birthday?:Date
+};
+
+function getCustomer (id:number) :Customer | null | undefined {
+    return id === 0? null : {birthday:new Date()}
+}
+let customer = getCustomer(3);
+// if(customer !== null && customer !== undefined) /* in the easy way we can remove this if statement
+                                                    //  then use this following way: 
+ //Optional property access operator. 
+console.log(customer?.birthday?.getFullYear()) // This (?.) is called optional property access operator.
+
+// Optional element access operator (This is useful when you are working with arrays)
+let consumers:number[] |null = [2]
+// if(consumers !== null && consumers !== undefined)
+console.log(consumers?.[0])
+
+//Optional call
+
+let log :any = null
+log?.('a')
 
