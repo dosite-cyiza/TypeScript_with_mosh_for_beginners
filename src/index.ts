@@ -37,7 +37,7 @@ console.log(calculateTax(50000000,2020))
 
 // Objects
 
-let employee :{
+let employe :{
     id:number,
    readonly name:string,
    retire:(date:Date) => void
@@ -49,5 +49,54 @@ let employee :{
         console.log(date)
     }
 }
+console.log(employe)
+
+// Type aliases
+type Employee = {
+    
+    id:number,
+    readonly name:string,
+    retire:(date:Date) => void
+}
+
+let employee : Employee = {
+    id:1,
+    name:"cyiza",
+    retire:(date:Date)=>{
+        console.log(date)
+    }
+}
 console.log(employee)
 
+// Union Types
+
+function kgToLbs(weight: number | string){
+    // Narrowing (This is process that help to specify the type)
+
+    if(typeof weight === 'number')
+        return weight * 2.2
+    else
+        return parseInt(weight)*8
+
+}
+console.log(kgToLbs(10))
+console.log(kgToLbs('10'))
+
+// Type intersection
+
+type Draggable = {
+    drag:() => void
+}
+
+type Resizable ={
+    resize :() =>void
+}
+
+type UIWidget = Draggable & Resizable
+
+let textbox : UIWidget ={
+    drag: () =>{},
+    resize: () => {}
+}
+
+//

@@ -28,6 +28,14 @@ function calculateTax(income, taxYear) {
     return income * 3;
 }
 console.log(calculateTax(50000000, 2020));
+let employe = {
+    id: 1,
+    name: "cyiza",
+    retire: (date) => {
+        console.log(date);
+    }
+};
+console.log(employe);
 let employee = {
     id: 1,
     name: "cyiza",
@@ -36,4 +44,12 @@ let employee = {
     }
 };
 console.log(employee);
+function kgToLbs(weight) {
+    if (typeof weight === 'number')
+        return weight * 2.2;
+    else
+        return parseInt(weight) * 8;
+}
+console.log(kgToLbs(10));
+console.log(kgToLbs('10'));
 //# sourceMappingURL=index.js.map
