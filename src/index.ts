@@ -147,3 +147,37 @@ console.log(consumers?.[0])
 let log :any = null
 log?.('a')
 
+// Exercises
+
+/*
+**Question 1: Description:**
+
+Create a function that takes two numbers as parameters and returns
+ their sum. Ensure proper type annotations for parameters and return type.
+
+ **Expected Behavior:**
+
+- Input: `addNumbers(5, 10)`
+- Output: `15`
+- Input: `addNumbers(3.5, 2.5)`
+- Output: `6`
+
+*/
+
+function addNumber(x:number, y:number):number{
+    return x + y
+}
+console.log(addNumber(10,5))
+console.log(addNumber(3.5,2.5))
+
+function describeInput( par: number | string){
+    if(typeof par == "string"){
+        return `You provided a string: ${par}`
+    }
+    else{
+        return `You provided a number: ${par}`
+    }
+}
+console.log(describeInput("hello"))
+console.log(describeInput(4))
+
