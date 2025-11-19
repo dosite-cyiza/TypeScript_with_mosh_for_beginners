@@ -232,3 +232,44 @@ function introduceUser(user:User):string{
     return `Hello my name is ${user.name}, I am ${user.age} years old, and my email is${user.email}`
 }
 console.log(introduceUser({ name: "Alice", age: 28, email: "alice@example.com" }))
+
+/* **Question 4: Description:**
+
+Create an
+
+```
+enum
+```
+
+called
+
+```
+Status
+```
+
+with values for "Active", "Inactive", and "Pending". Write a function that accepts a Status and returns a descriptive message based on the status value.
+
+**Starter Code:**
+
+```tsx
+// Define the Status enum here
+
+function getStatusMessage(status) {
+  // Your code here
+}
+
+```
+
+**Expected Behavior:**
+
+- Input: `getStatusMessage(Status.Active)`
+- Output: `"The item is currently active"`
+- Input: `getStatusMessage(Status.Pending)`
+- Output: `"The item is pending review"` */
+
+enum Status{Active="active",Inactive="inactive",Pending="Pending"}
+
+function getStatusMessage(status:Status):string{
+    return `The item is currently ${status}`
+}
+console.log(getStatusMessage(Status.Active))

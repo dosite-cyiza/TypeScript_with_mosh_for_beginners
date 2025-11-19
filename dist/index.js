@@ -96,4 +96,14 @@ function introduceUser(user) {
     return `Hello my name is ${user.name}, I am ${user.age} years old, and my email is${user.email}`;
 }
 console.log(introduceUser({ name: "Alice", age: 28, email: "alice@example.com" }));
+var Status;
+(function (Status) {
+    Status["Active"] = "active";
+    Status["Inactive"] = "inactive";
+    Status["Pending"] = "Pending";
+})(Status || (Status = {}));
+function getStatusMessage(status) {
+    return `The item is currently ${status}`;
+}
+console.log(getStatusMessage(Status.Active));
 //# sourceMappingURL=index.js.map
