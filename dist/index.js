@@ -92,4 +92,8 @@ function describeInput(par) {
 }
 console.log(describeInput("hello"));
 console.log(describeInput(4));
+function introduceUser(user) {
+    return `Hello my name is ${user.name}, I am ${user.age} years old, and my email is${user.email}`;
+}
+console.log(introduceUser({ name: "Alice", age: 28, email: "alice@example.com" }));
 //# sourceMappingURL=index.js.map

@@ -195,3 +195,40 @@ function describeInput( par: number | string){
 console.log(describeInput("hello"))
 console.log(describeInput(4))
 
+/*
+Create an interface called
+
+```
+User
+```
+
+with properties for name (string), age (number), and email (string). 
+Then refactor the function below to add proper types for the parameters and return type
+
+**Starter Code:**
+
+```
+// Define the User interface here
+
+function introduceUser(user) {
+  return `Hello, my name is ${user.name}, I am ${user.age} years old,
+   and my email is ${user.email}`;
+}
+
+```
+
+**Expected Behavior:**
+
+- Input: `{ name: "Alice", age: 28, email: "alice@example.com" }`
+- Output: `"Hello, my name is Alice, I am 28 years old, and my email is alice@example.com"`
+*/
+
+interface User{
+    name:string,
+    age:number,
+    email:string
+}
+function introduceUser(user:User):string{
+    return `Hello my name is ${user.name}, I am ${user.age} years old, and my email is${user.email}`
+}
+console.log(introduceUser({ name: "Alice", age: 28, email: "alice@example.com" }))
