@@ -170,6 +170,20 @@ function addNumber(x:number, y:number):number{
 console.log(addNumber(10,5))
 console.log(addNumber(3.5,2.5))
 
+/*
+**Question 2: Description:**
+
+Create a function that accepts either a string or a number as input 
+and returns a message describing what type it received. Use union types to enforce this.
+**Expected Behavior:**
+
+- Input: `describeInput("hello")`
+- Output: `"You provided a string: hello"`
+- Input: `describeInput(42)`
+- Output: `"You provided a number: 42"`
+
+*/
+
 function describeInput( par: number | string){
     if(typeof par == "string"){
         return `You provided a string: ${par}`
