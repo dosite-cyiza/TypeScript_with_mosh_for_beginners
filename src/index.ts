@@ -147,3 +147,169 @@ console.log(consumers?.[0])
 let log :any = null
 log?.('a')
 
+// Exercises
+
+/*
+**Question 1: Description:**
+
+Create a function that takes two numbers as parameters and returns
+ their sum. Ensure proper type annotations for parameters and return type.
+
+ **Expected Behavior:**
+
+- Input: `addNumbers(5, 10)`
+- Output: `15`
+- Input: `addNumbers(3.5, 2.5)`
+- Output: `6`
+
+*/
+
+function addNumber(x:number, y:number):number{
+    return x + y
+}
+console.log(addNumber(10,5))
+console.log(addNumber(3.5,2.5))
+
+/*
+**Question 2: Description:**
+
+Create a function that accepts either a string or a number as input 
+and returns a message describing what type it received. Use union types to enforce this.
+**Expected Behavior:**
+
+- Input: `describeInput("hello")`
+- Output: `"You provided a string: hello"`
+- Input: `describeInput(42)`
+- Output: `"You provided a number: 42"`
+
+*/
+
+function describeInput( par: number | string){
+    if(typeof par == "string"){
+        return `You provided a string: ${par}`
+    }
+    else{
+        return `You provided a number: ${par}`
+    }
+}
+console.log(describeInput("hello"))
+console.log(describeInput(4))
+
+/*
+Create an interface called
+
+```
+User
+```
+
+with properties for name (string), age (number), and email (string). 
+Then refactor the function below to add proper types for the parameters and return type
+
+**Starter Code:**
+
+```
+// Define the User interface here
+
+function introduceUser(user) {
+  return `Hello, my name is ${user.name}, I am ${user.age} years old,
+   and my email is ${user.email}`;
+}
+
+```
+
+**Expected Behavior:**
+
+- Input: `{ name: "Alice", age: 28, email: "alice@example.com" }`
+- Output: `"Hello, my name is Alice, I am 28 years old, and my email is alice@example.com"`
+*/
+
+interface User{
+    name:string,
+    age:number,
+    email:string
+}
+function introduceUser(user:User):string{
+    return `Hello my name is ${user.name}, I am ${user.age} years old, and my email is${user.email}`
+}
+console.log(introduceUser({ name: "Alice", age: 28, email: "alice@example.com" }))
+
+/* **Question 4: Description:**
+
+Create an
+
+```
+enum
+```
+
+called
+
+```
+Status
+```
+
+with values for "Active", "Inactive", and "Pending". Write a function that accepts a Status and returns a descriptive message based on the status value.
+
+**Starter Code:**
+
+```tsx
+// Define the Status enum here
+
+function getStatusMessage(status) {
+  // Your code here
+}
+
+```
+
+**Expected Behavior:**
+
+- Input: `getStatusMessage(Status.Active)`
+- Output: `"The item is currently active"`
+- Input: `getStatusMessage(Status.Pending)`
+- Output: `"The item is pending review"` */
+
+enum Status{Active="active",Inactive="inactive",Pending="Pending"}
+
+function getStatusMessage(status:Status):string{
+    return `The item is currently ${status}`
+}
+console.log(getStatusMessage(Status.Active))
+
+/*
+**Description:**
+
+Create a generic function called
+
+```
+getFirstElement
+```
+
+that accepts an array of any type and returns the first element. The return type should match the input array's element type.
+
+**Starter Code:**
+
+```tsx
+// Write a generic function that returns the first element of an array
+function getFirstElement(arr) {
+  //   ...
+}
+
+```
+
+**Expected Behavior:**
+
+- Input: `getFirstElement([1, 2, 3])`
+- Output: `1`
+- Input: `getFirstElement(["a", "b", "c"])`
+- Output: `"a"`
+- Input: `getFirstElement([{ id: 1 }, { id: 2 }])`
+- Output: `{ id: 1 }`
+ */
+
+function getFirstElement <T>(arr:T[]):T | undefined{
+    return arr[0]
+}
+console.log(getFirstElement([1,2,3]))
+console.log(getFirstElement(["a", "b", "c"]))
+console.log(getFirstElement([{ id: 1 }, { id: 2 }]))
+
+

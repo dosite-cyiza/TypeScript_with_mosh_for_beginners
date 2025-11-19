@@ -77,4 +77,39 @@ let consumers = [2];
 console.log(consumers?.[0]);
 let log = null;
 log?.('a');
+function addNumber(x, y) {
+    return x + y;
+}
+console.log(addNumber(10, 5));
+console.log(addNumber(3.5, 2.5));
+function describeInput(par) {
+    if (typeof par == "string") {
+        return `You provided a string: ${par}`;
+    }
+    else {
+        return `You provided a number: ${par}`;
+    }
+}
+console.log(describeInput("hello"));
+console.log(describeInput(4));
+function introduceUser(user) {
+    return `Hello my name is ${user.name}, I am ${user.age} years old, and my email is${user.email}`;
+}
+console.log(introduceUser({ name: "Alice", age: 28, email: "alice@example.com" }));
+var Status;
+(function (Status) {
+    Status["Active"] = "active";
+    Status["Inactive"] = "inactive";
+    Status["Pending"] = "Pending";
+})(Status || (Status = {}));
+function getStatusMessage(status) {
+    return `The item is currently ${status}`;
+}
+console.log(getStatusMessage(Status.Active));
+function getFirstElement(arr) {
+    return arr[0];
+}
+console.log(getFirstElement([1, 2, 3]));
+console.log(getFirstElement(["a", "b", "c"]));
+console.log(getFirstElement([{ id: 1 }, { id: 2 }]));
 //# sourceMappingURL=index.js.map
