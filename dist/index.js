@@ -106,4 +106,10 @@ function getStatusMessage(status) {
     return `The item is currently ${status}`;
 }
 console.log(getStatusMessage(Status.Active));
+function getFirstElement(arr) {
+    return arr[0];
+}
+console.log(getFirstElement([1, 2, 3]));
+console.log(getFirstElement(["a", "b", "c"]));
+console.log(getFirstElement([{ id: 1 }, { id: 2 }]));
 //# sourceMappingURL=index.js.map

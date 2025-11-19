@@ -273,3 +273,43 @@ function getStatusMessage(status:Status):string{
     return `The item is currently ${status}`
 }
 console.log(getStatusMessage(Status.Active))
+
+/*
+**Description:**
+
+Create a generic function called
+
+```
+getFirstElement
+```
+
+that accepts an array of any type and returns the first element. The return type should match the input array's element type.
+
+**Starter Code:**
+
+```tsx
+// Write a generic function that returns the first element of an array
+function getFirstElement(arr) {
+  //   ...
+}
+
+```
+
+**Expected Behavior:**
+
+- Input: `getFirstElement([1, 2, 3])`
+- Output: `1`
+- Input: `getFirstElement(["a", "b", "c"])`
+- Output: `"a"`
+- Input: `getFirstElement([{ id: 1 }, { id: 2 }])`
+- Output: `{ id: 1 }`
+ */
+
+function getFirstElement <T>(arr:T[]):T | undefined{
+    return arr[0]
+}
+console.log(getFirstElement([1,2,3]))
+console.log(getFirstElement(["a", "b", "c"]))
+console.log(getFirstElement([{ id: 1 }, { id: 2 }]))
+
+
