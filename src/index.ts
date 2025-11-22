@@ -349,3 +349,44 @@ function describeManagerEmployee(me:managerEmployee):string {
   return `${me.name} (ID: ${me.employeeId}) manages a team of ${me.teamSize} people`;
 }
 console.log(describeManagerEmployee({ name: "Bob", employeeId: 123, teamSize: 5 }))
+
+/*
+## Question 7: Function Types
+
+**Description:**
+Create a type alias for a function that takes two numbers and returns a number. 
+Use this type to create a function that applies a mathematical operation to two numbers.
+
+**Starter Code:**
+
+```tsx
+// Define a missing TypeScript types
+
+function applyOperation(a, b, operation) {
+  return operation(a, b);
+}
+
+const add = (x, y) => x + y;
+const multiply = (x, y) => x * y;
+
+```
+
+**Expected Behavior:**
+
+- Input: `applyOperation(10, 5, add)`
+- Output: `15`
+- Input: `applyOperation(10, 5, multiply)`
+Output: 50
+ */
+
+type mathematicalOperation = (a:number,b:number) => number 
+
+function applyOperation(a:number,b:number,operation:mathematicalOperation){
+    return operation(a,b)
+}
+
+const add =(x:number,y:number) =>x + y
+const multiply=(x:number,y:number) =>x * y
+
+console.log(applyOperation(3,4,add))
+console.log(applyOperation(3,4,multiply))
