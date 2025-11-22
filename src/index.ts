@@ -313,3 +313,39 @@ console.log(getFirstElement(["a", "b", "c"]))
 console.log(getFirstElement([{ id: 1 }, { id: 2 }]))
 
 
+/*
+## Question 6: Intersection Types
+
+**Description:**
+Create two interfaces: `Employee` with properties `name` and 
+`employeeId`, and `Manager` with property `teamSize`. Create 
+an intersection type `ManagerEmployee`
+ and write a function that describes a manager employee.
+
+ // Define Employee interface
+// Define Manager interface
+// Define ManagerEmployee type
+
+function describeManagerEmployee(me) {
+  return `${me.name} (ID: ${me.employeeId}) manages a team of ${me.teamSize} people`;
+}
+**Expected Behavior:**
+
+- Input: `{ name: "Bob", employeeId: 123, teamSize: 5 }`
+- Output: `"Bob (ID: 123) manages a team of 5 people"`
+ */
+
+interface Employee2 {
+    name: string,
+    employeeId: number,
+
+}
+interface Manager{
+    teamSize:number
+}
+
+type managerEmployee = Employee2 & Manager
+function describeManagerEmployee(me:managerEmployee):string {
+  return `${me.name} (ID: ${me.employeeId}) manages a team of ${me.teamSize} people`;
+}
+console.log(describeManagerEmployee({ name: "Bob", employeeId: 123, teamSize: 5 }))

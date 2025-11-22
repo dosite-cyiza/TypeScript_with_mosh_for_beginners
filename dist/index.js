@@ -112,4 +112,8 @@ function getFirstElement(arr) {
 console.log(getFirstElement([1, 2, 3]));
 console.log(getFirstElement(["a", "b", "c"]));
 console.log(getFirstElement([{ id: 1 }, { id: 2 }]));
+function describeManagerEmployee(me) {
+    return `${me.name} (ID: ${me.employeeId}) manages a team of ${me.teamSize} people`;
+}
+console.log(describeManagerEmployee({ name: "Bob", employeeId: 123, teamSize: 5 }));
 //# sourceMappingURL=index.js.map
