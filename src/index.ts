@@ -422,3 +422,32 @@ if(typeof myUnknown === "number"){
 // type assertion
 
 console.log((myUnknown as number).toFixed(2))
+
+// Type casting
+
+// Imagine 'apiResponse' is a value of type 'unknown' or 'any'
+// coming from an external source.
+const apiResponse: unknown = {
+  idn: 123,
+  name: "Alice",
+  email: "alice@example.com",
+};
+
+// Define an interface for the expected user data
+interface Users {
+  idn: number;
+  name: string;
+  email: string;
+}
+
+// Type cast 'apiResponse' to the 'User' interface
+const user2: Users = apiResponse as Users;
+
+// Now, 'user' is treated as a 'User' object, and you can access its properties
+// with type safety and auto-completion.
+console.log(user2.idn); 
+console.log(user2.name); // Output: Alice
+console.log(user2.email); // Output: alice@example.com
+
+// Attempting to access a non-existent property would result in a type error:
+// console.log(user.address); // Error: Property 'address' does not exist on type 'User'.
