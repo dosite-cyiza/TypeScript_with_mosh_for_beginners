@@ -390,3 +390,14 @@ const multiply=(x:number,y:number) =>x * y
 
 console.log(applyOperation(3,4,add))
 console.log(applyOperation(3,4,multiply))
+
+/*
+symbol type
+*/
+
+const uniqueKey:symbol = Symbol("Description")
+
+const obj ={
+    [uniqueKey]:'This is unique property'
+}
+console.log(obj[uniqueKey])
