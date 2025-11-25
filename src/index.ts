@@ -401,3 +401,24 @@ const obj ={
     [uniqueKey]:'This is unique property'
 }
 console.log(obj[uniqueKey])
+
+/*
+Unkown
+type narrowing 
+type assertion
+
+Example
+*/
+let myUnknown:unknown = "hello"
+myUnknown =67.00
+// console.log(myUnknown.toFixed(2)) // Error: Object is of type 'unknown'.
+
+//type narrowing
+if(typeof myUnknown === "number"){
+    myUnknown.toFixed(2)
+}
+// console.log(myUnknown)
+
+// type assertion
+
+console.log((myUnknown as number).toFixed(2))
