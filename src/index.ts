@@ -349,3 +349,105 @@ function describeManagerEmployee(me:managerEmployee):string {
   return `${me.name} (ID: ${me.employeeId}) manages a team of ${me.teamSize} people`;
 }
 console.log(describeManagerEmployee({ name: "Bob", employeeId: 123, teamSize: 5 }))
+
+/*
+## Question 7: Function Types
+
+**Description:**
+Create a type alias for a function that takes two numbers and returns a number. 
+Use this type to create a function that applies a mathematical operation to two numbers.
+
+**Starter Code:**
+
+```tsx
+// Define a missing TypeScript types
+
+function applyOperation(a, b, operation) {
+  return operation(a, b);
+}
+
+const add = (x, y) => x + y;
+const multiply = (x, y) => x * y;
+
+```
+
+**Expected Behavior:**
+
+- Input: `applyOperation(10, 5, add)`
+- Output: `15`
+- Input: `applyOperation(10, 5, multiply)`
+Output: 50
+ */
+
+type mathematicalOperation = (a:number,b:number) => number 
+
+function applyOperation(a:number,b:number,operation:mathematicalOperation){
+    return operation(a,b)
+}
+
+const add =(x:number,y:number) =>x + y
+const multiply=(x:number,y:number) =>x * y
+
+console.log(applyOperation(3,4,add))
+console.log(applyOperation(3,4,multiply))
+
+/*
+symbol type
+*/
+
+const uniqueKey:symbol = Symbol("Description")
+
+const obj ={
+    [uniqueKey]:'This is unique property'
+}
+console.log(obj[uniqueKey])
+
+/*
+Unkown
+type narrowing 
+type assertion
+
+Example
+*/
+let myUnknown:unknown = "hello"
+myUnknown =67.00
+// console.log(myUnknown.toFixed(2)) // Error: Object is of type 'unknown'.
+
+//type narrowing
+if(typeof myUnknown === "number"){
+    myUnknown.toFixed(2)
+}
+// console.log(myUnknown)
+
+// type assertion
+
+console.log((myUnknown as number).toFixed(2))
+
+// Type casting
+
+// Imagine 'apiResponse' is a value of type 'unknown' or 'any'
+// coming from an external source.
+const apiResponse: unknown = {
+  idn: 123,
+  name: "Alice",
+  email: "alice@example.com",
+};
+
+// Define an interface for the expected user data
+interface Users {
+  idn: number;
+  name: string;
+  email: string;
+}
+
+// Type cast 'apiResponse' to the 'User' interface
+const user2: Users = apiResponse as Users;
+
+// Now, 'user' is treated as a 'User' object, and you can access its properties
+// with type safety and auto-completion.
+console.log(user2.idn); 
+console.log(user2.name); // Output: Alice
+console.log(user2.email); // Output: alice@example.com
+
+// Attempting to access a non-existent property would result in a type error:
+// console.log(user.address); // Error: Property 'address' does not exist on type 'User'.
