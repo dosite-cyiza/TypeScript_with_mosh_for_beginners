@@ -509,4 +509,34 @@ function solution(number: number) {
     return sum;
 }
 console.log(solution(10))
-    
+
+
+///////Declaration merging
+// First declaration
+interface Person {
+  name: string;
+  age: number;
+}
+
+// Second declaration with the same name
+interface Person {
+  address: string;
+  email: string;
+}
+
+// TypeScript merges them into:
+// interface Person {
+// name: string;
+// age: number;
+// address: string;
+// email: string;
+// }
+
+const person: Person = {
+  name: "John",
+  age: 30,
+  address: "123 Main St",
+  email: "john@example.com"
+};
+
+console.log(person);
