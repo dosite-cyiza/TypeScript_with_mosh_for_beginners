@@ -463,7 +463,7 @@ console.log(user2.email); // Output: alice@example.com
 };  
 console.log(car)
 
-// index signatures
+/// index signatures
 interface UserAges {
   [name: string]: number;
 }
@@ -473,6 +473,14 @@ const ages: UserAges = {
   "Bob": 25,
 };
 
-// You can dynamically add new properties
+/// You can dynamically add new properties
 ages.Charlie = 28;
 console.log(ages)
+
+
+//// optional property
+const car1: { type: string, mileage?: number } = { // no error
+  type: "Toyota"
+};
+car1.mileage = 2000;
+console.log(car1)
