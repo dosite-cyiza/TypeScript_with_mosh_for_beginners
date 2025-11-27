@@ -451,3 +451,62 @@ console.log(user2.email); // Output: alice@example.com
 
 // Attempting to access a non-existent property would result in a type error:
 // console.log(user.address); // Error: Property 'address' does not exist on type 'User'.
+
+
+
+// Object type
+
+   const car: { type: string, model: string, year: number } = {
+  type: "Toyota",
+  model: "Corolla",
+  year: 2009
+};  
+console.log(car)
+
+/// index signatures
+interface UserAges {
+  [name: string]: number;
+}
+
+const ages: UserAges = {
+  "Alice": 30,
+  "Bob": 25,
+};
+
+/// You can dynamically add new properties
+ages.Charlie = 28;
+console.log(ages)
+
+
+//// optional property
+const car1: { type: string, mileage?: number } = { // no error
+  type: "Toyota"
+};
+car1.mileage = 2000;
+console.log(car1)
+
+/*
+Create a function that takes an integer as an argument and returns "Even" 
+for even numbers or "Odd" for odd numbers.
+*/
+
+ function evenOrOdd(n:number):string {
+ return (n % 2 === 0)? "Even":"Odd"
+}
+console.log(evenOrOdd(8))
+
+/*
+Multiple of 3 or 5
+*/
+function solution(number: number) {
+    let sum:number = 0
+   for (let i = 0; i < number; i++) {
+      if (i % 3 === 0 || i % 5 === 0) {
+        sum += i;
+      }
+    }
+
+    return sum;
+}
+console.log(solution(10))
+    
