@@ -451,3 +451,15 @@ console.log(user2.email); // Output: alice@example.com
 
 // Attempting to access a non-existent property would result in a type error:
 // console.log(user.address); // Error: Property 'address' does not exist on type 'User'.
+
+
+
+// Object type
+
+   const car: { type: string, model: string, year: number } = {
+  type: "Toyota",
+  model: "Corolla",
+  year: 2009
+};  
+console.log(car)
+
