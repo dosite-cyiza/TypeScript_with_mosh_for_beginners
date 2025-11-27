@@ -484,3 +484,13 @@ const car1: { type: string, mileage?: number } = { // no error
 };
 car1.mileage = 2000;
 console.log(car1)
+
+/*
+Create a function that takes an integer as an argument and returns "Even" 
+for even numbers or "Odd" for odd numbers.
+*/
+
+ function evenOrOdd(n:number):string {
+ return (n % 2 === 0)? "Even":"Odd"
+}
+console.log(evenOrOdd(8))
