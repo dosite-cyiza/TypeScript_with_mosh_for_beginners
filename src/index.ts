@@ -540,3 +540,16 @@ const person: Person = {
 };
 
 console.log(person);
+
+// Intefaces
+
+interface Rectangle {
+    height: number,
+    width:number
+}
+const rectangle:Rectangle ={
+    height:20,
+    width:30
+}
+
+console.log(rectangle)
