@@ -583,12 +583,15 @@ const coloredRectagle:ColoredRectagle ={
 console.log(coloredRectagle)
 
 // Ts Classes
-class Person{
-    name:string
-    constructor (name:string){
-        this.name = name
+class People{
+   protected nickName:string
+    public constructor (nickName:string){
+        this.nickName = nickName
+    }
+    public getName():string{
+        return this.nickName;
     }
 }
-const girl= new Person("Jane")
-console.log(girl)
+const girl= new People("Jane")
+console.log(girl.getName())
 
