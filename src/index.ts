@@ -540,3 +540,45 @@ const person: Person = {
 };
 
 console.log(person);
+
+// Intefaces
+
+interface Rectangle {
+    height: number,
+    width:number
+}
+const rectangle:Rectangle ={
+    height:20,
+    width:30
+}
+
+console.log(rectangle)
+// interace merging
+
+interface Animal{
+    name:string
+}
+interface Animal{
+    age:number
+}
+const dog:Animal ={
+    name:"Fido",
+    age:5
+}
+console.log(dog)
+
+// Extending intefaces
+interface Rectangles {
+    height:number,
+    width: number
+}
+interface ColoredRectagle extends Rectangles{
+    color:string
+}
+const coloredRectagle:ColoredRectagle ={
+    height:60,
+    color:"red",
+    width:70
+}
+console.log(coloredRectagle)
+
