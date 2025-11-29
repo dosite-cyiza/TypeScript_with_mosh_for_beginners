@@ -567,4 +567,18 @@ const dog:Animal ={
 }
 console.log(dog)
 
+// Extending intefaces
+interface Rectangles {
+    height:number,
+    width: number
+}
+interface ColoredRectagle extends Rectangles{
+    color:string
+}
+const coloredRectagle:ColoredRectagle ={
+    height:60,
+    color:"red",
+    width:70
+}
+console.log(coloredRectagle)
 
