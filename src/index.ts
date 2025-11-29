@@ -584,12 +584,15 @@ console.log(coloredRectagle)
 
 // Ts Classes
 class People{
-   protected nickName:string
+   private readonly nickName:string
     public constructor (nickName:string){
         this.nickName = nickName
     }
     public getName():string{
         return this.nickName;
+    }
+    public changeName(newName:string):void{
+        this.nickName =newName //Cannot assign to 'nickName' because it is a read-only property.
     }
 }
 const girl= new People("Jane")
