@@ -572,15 +572,15 @@ interface Rectangles {
     height:number,
     width: number
 }
-interface ColoredRectagle extends Rectangles{
+interface ColoredRectangle extends Rectangles{
     color:string
 }
-const coloredRectagle:ColoredRectagle ={
+const coloredRectangle:ColoredRectangle ={
     height:60,
     color:"red",
     width:70
 }
-console.log(coloredRectagle)
+console.log(coloredRectangle)
 
 // Ts Classes
 class People{
@@ -591,10 +591,24 @@ class People{
     public getName():string{
         return this.nickName;
     }
-    public changeName(newName:string):void{
-        this.nickName =newName //Cannot assign to 'nickName' because it is a read-only property.
-    }
+    // public changeName(newName:string):void{
+    //     this.nickName =newName //Cannot assign to 'nickName' because it is a read-only property.
+    // }
 }
 const girl= new People("Jane")
 console.log(girl.getName())
 
+// Inhertance :implements
+interface Shape {
+  getAreas: () => number;
+}
+
+class Rectangless implements Shape {
+  public constructor(protected readonly w: number, protected readonly h: number) {}
+
+  public getAreas(): number {
+    return this.w * this.h;
+  }
+}
+const myRectangle = new Rectangless(34,56)
+console.log(myRectangle.getAreas())
