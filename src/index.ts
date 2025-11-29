@@ -582,3 +582,13 @@ const coloredRectagle:ColoredRectagle ={
 }
 console.log(coloredRectagle)
 
+// Ts Classes
+class Person{
+    name:string
+    constructor (name:string){
+        this.name = name
+    }
+}
+const girl= new Person("Jane")
+console.log(girl)
+
