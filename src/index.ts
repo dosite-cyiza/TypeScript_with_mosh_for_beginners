@@ -640,3 +640,36 @@ function processValue(value: string | number |boolean){
    }
 }
 console.log(processValue(5))
+
+/*
+## Question 9: Readonly Properties
+
+**Description:**
+Create an interface `Config` with readonly properties for `apiUrl` (string) and `timeout` (number). Demonstrate that these properties cannot be modified after creation.
+
+**Starter Code:**
+
+```tsx
+// Define the Config interface with readonly properties
+
+const config: Config = {
+  apiUrl: "https://api.example.com",
+  timeout: 5000
+};
+
+// Attempting to modify should cause a TypeScript error
+// config.apiUrl = "https://api.newsite.com"; // This should error
+```
+
+**Task:** Create the interface and verify the starter code compiles. Then uncomment the modification line and show it causes a TypeScript error.
+*/
+interface Config{
+    readonly apiUrl: string,
+    readonly timeout: number
+}
+let config: Config = {
+  apiUrl: "https://api.example.com",
+  timeout: 5000
+};
+console.log(config)
+// console.log(config.apiUrl = "https://api.examples.com")
