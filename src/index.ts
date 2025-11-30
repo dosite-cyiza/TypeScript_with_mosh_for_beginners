@@ -673,3 +673,51 @@ let config: Config = {
 };
 console.log(config)
 // console.log(config.apiUrl = "https://api.examples.com")
+
+/*
+## Question 10: Literal Types
+
+**Description:**
+Create a type for direction that accepts only "north", "south", "east", or "west". Write a function that takes a direction and returns coordinates representing movement in that direction.
+
+**Starter Code:**
+
+```tsx
+// Define a Direction type with literal values
+
+function move(direction) {
+  switch(direction) {
+    case "north":
+      return { x: 0, y: 1 };
+    case "south":
+      return { x: 0, y: -1 };
+    case "east":
+      return { x: 1, y: 0 };
+    case "west":
+      return { x: -1, y: 0 };
+  }
+}
+```
+**Expected Behavior:**
+
+- Input: `move("north")`
+- Output: `{ x: 0, y: 1 }`
+- Input: `move("west")`
+- Output: `{ x: -1, y: 0 }`
+ */
+
+type Direction = "north"| "south"|"east"|"west"
+function move(direction:Direction) {
+  switch(direction) {
+    case "north":
+      return { x: 0, y: 1 };
+    case "south":
+      return { x: 0, y: -1 };
+    case "east":
+      return { x: 1, y: 0 };
+    case "west":
+      return { x: -1, y: 0 };
+  }
+}
+console.log(move("north"))
+console.log(move("west"))
