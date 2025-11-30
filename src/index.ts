@@ -612,3 +612,165 @@ class Rectangless implements Shape {
 }
 const myRectangle = new Rectangless(34,56)
 console.log(myRectangle.getAreas())
+//Function type
+
+type mathematicalOperations = (num1:number,num2:number)=> number
+
+function applyOperations (a:number,b:number,operation:mathematicalOperations){
+    return operation(a,b)
+}
+const adds =(x:number,y:number) => x+y
+console.log(applyOperations(3,5,adds))
+
+// type guards
+
+
+function processValue(value: string | number |boolean){
+   if (typeof value == "string"){
+    return value.toUpperCase()
+   }
+   else if(typeof value == "number"){
+    return value * 2
+   }
+   else if (typeof value == "boolean"){
+    return !value
+   }
+   else{
+    return `you need to valid value`
+   }
+}
+console.log(processValue(5))
+
+/*
+## Question 9: Readonly Properties
+
+**Description:**
+Create an interface `Config` with readonly properties for `apiUrl` (string) and `timeout` (number). Demonstrate that these properties cannot be modified after creation.
+
+**Starter Code:**
+
+```tsx
+// Define the Config interface with readonly properties
+
+const config: Config = {
+  apiUrl: "https://api.example.com",
+  timeout: 5000
+};
+
+// Attempting to modify should cause a TypeScript error
+// config.apiUrl = "https://api.newsite.com"; // This should error
+```
+
+**Task:** Create the interface and verify the starter code compiles. Then uncomment the modification line and show it causes a TypeScript error.
+*/
+interface Config{
+    readonly apiUrl: string,
+    readonly timeout: number
+}
+let config: Config = {
+  apiUrl: "https://api.example.com",
+  timeout: 5000
+};
+console.log(config)
+// console.log(config.apiUrl = "https://api.examples.com")
+
+/*
+## Question 10: Literal Types
+
+**Description:**
+Create a type for direction that accepts only "north", "south", "east", or "west". Write a function that takes a direction and returns coordinates representing movement in that direction.
+
+**Starter Code:**
+
+```tsx
+// Define a Direction type with literal values
+
+function move(direction) {
+  switch(direction) {
+    case "north":
+      return { x: 0, y: 1 };
+    case "south":
+      return { x: 0, y: -1 };
+    case "east":
+      return { x: 1, y: 0 };
+    case "west":
+      return { x: -1, y: 0 };
+  }
+}
+```
+**Expected Behavior:**
+
+- Input: `move("north")`
+- Output: `{ x: 0, y: 1 }`
+- Input: `move("west")`
+- Output: `{ x: -1, y: 0 }`
+ */
+
+type Direction = "north"| "south"|"east"|"west"
+function move(direction:Direction) {
+  switch(direction) {
+    case "north":
+      return { x: 0, y: 1 };
+    case "south":
+      return { x: 0, y: -1 };
+    case "east":
+      return { x: 1, y: 0 };
+    case "west":
+      return { x: -1, y: 0 };
+  }
+}
+console.log(move("north"))
+console.log(move("west"))
+
+/*
+## Question 11: Classes with Type Annotations
+
+**Description:**
+Create a class `BankAccount` with private property `balance` (number), constructor 
+that initializes balance, and methods `deposit()` and `withdraw()` that modify the balance. 
+Include type annotations for all methods.
+
+**Starter Code:**
+
+```tsx
+class BankAccount {
+  // Your code here
+}
+
+```
+
+**Expected Behavior:**
+
+- Create account with 1000, deposit 500 → balance is 1500
+- Withdraw 200 → returns true, balance is 1300
+- Withdraw 2000 → returns false, balance is 1300
+ */
+
+class BankAccount{
+    private balance: number
+    constructor (balance:number){
+        this.balance = balance
+    }
+    deposit(amount:number):number{
+        if(amount > 0){
+            return this.balance += amount
+        }
+        return this.balance
+    }
+    withdraw(amount:number):boolean{
+        if(amount > 0 && amount <= this.balance){
+            this.balance -= amount
+            return true          
+        }
+        return false
+    }
+    getBalance():number{
+        return this.balance
+    }
+}
+    
+
+let myAccount = new BankAccount(1000)
+console.log("After depositing 500, Balance is : " + myAccount.deposit(500))
+console.log(myAccount.withdraw(200)+ ", Balance is " + myAccount.getBalance() )
+console.log(myAccount.withdraw(2000)+ ", Balance is " + myAccount.getBalance() )
