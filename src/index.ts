@@ -721,3 +721,56 @@ function move(direction:Direction) {
 }
 console.log(move("north"))
 console.log(move("west"))
+
+/*
+## Question 11: Classes with Type Annotations
+
+**Description:**
+Create a class `BankAccount` with private property `balance` (number), constructor 
+that initializes balance, and methods `deposit()` and `withdraw()` that modify the balance. 
+Include type annotations for all methods.
+
+**Starter Code:**
+
+```tsx
+class BankAccount {
+  // Your code here
+}
+
+```
+
+**Expected Behavior:**
+
+- Create account with 1000, deposit 500 → balance is 1500
+- Withdraw 200 → returns true, balance is 1300
+- Withdraw 2000 → returns false, balance is 1300
+ */
+
+class BankAccount{
+    private balance: number
+    constructor (balance:number){
+        this.balance = balance
+    }
+    deposit(amount:number):number{
+        if(amount > 0){
+            return this.balance += amount
+        }
+        return this.balance
+    }
+    withdraw(amount:number):boolean{
+        if(amount > 0 && amount <= this.balance){
+            this.balance -= amount
+            return true          
+        }
+        return false
+    }
+    getBalance():number{
+        return this.balance
+    }
+}
+    
+
+let myAccount = new BankAccount(1000)
+console.log("After depositing 500, Balance is : " + myAccount.deposit(500))
+console.log(myAccount.withdraw(200)+ ", Balance is " + myAccount.getBalance() )
+console.log(myAccount.withdraw(2000)+ ", Balance is " + myAccount.getBalance() )
