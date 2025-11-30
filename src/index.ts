@@ -612,3 +612,31 @@ class Rectangless implements Shape {
 }
 const myRectangle = new Rectangless(34,56)
 console.log(myRectangle.getAreas())
+//Function type
+
+type mathematicalOperations = (num1:number,num2:number)=> number
+
+function applyOperations (a:number,b:number,operation:mathematicalOperations){
+    return operation(a,b)
+}
+const adds =(x:number,y:number) => x+y
+console.log(applyOperations(3,5,adds))
+
+// type guards
+
+
+function processValue(value: string | number |boolean){
+   if (typeof value == "string"){
+    return value.toUpperCase()
+   }
+   else if(typeof value == "number"){
+    return value * 2
+   }
+   else if (typeof value == "boolean"){
+    return !value
+   }
+   else{
+    return `you need to valid value`
+   }
+}
+console.log(processValue(5))
