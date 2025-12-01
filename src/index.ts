@@ -774,3 +774,54 @@ let myAccount = new BankAccount(1000)
 console.log("After depositing 500, Balance is : " + myAccount.deposit(500))
 console.log(myAccount.withdraw(200)+ ", Balance is " + myAccount.getBalance() )
 console.log(myAccount.withdraw(2000)+ ", Balance is " + myAccount.getBalance() )
+
+/*
+## Question 12: Never Type
+
+**Description:**
+Create a function that throws an error for invalid status values. 
+Use the `never` type to indicate that certain code paths are unreachable.
+
+**Starter Code:**
+
+```tsx
+enum Color {
+  Red = "RED",
+  Green = "GREEN",
+  Blue = "BLUE"
+}
+
+function getColorCode(color: Color): string {
+  // Your code here
+}
+
+```
+
+**Task:** Understand why the `never` type is useful here for
+ exhaustiveness checking. The code should compile successfully with all cases covered.
+*/
+enum Color {
+  Red = "RED",
+  Green = "GREEN",
+  Blue = "BLUE"
+}
+
+function handleInvalidColor(value: never): never {
+  throw new Error(`Invalid color: ${value}`);
+}
+
+function getColorCode(color: Color): string {
+  switch (color) {
+    case Color.Red:
+      return "#FF0000";
+    case Color.Green:
+      return "#00FF00";
+    case Color.Blue:
+      return "#0000FF";
+    default:
+      return handleInvalidColor(color); // color MUST be never here
+  }
+}
+
+console.log(getColorCode(Color.Red))
+
