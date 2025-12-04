@@ -61,7 +61,7 @@ type Employee = {
 
 let employee : Employee = {
     id:1,
-    name:"cyiza",
+    name:"dosite",
     retire:(date:Date)=>{
         console.log(date)
     }
@@ -824,4 +824,60 @@ function getColorCode(color: Color): string {
 }
 
 console.log(getColorCode(Color.Red))
+
+//1. Solve all the typing issues in the code without changing the implementation
+    
+    
+    // class Counter {
+
+    //   static count= 0;
+    //    count =0;
+    
+    //   increment():void {
+    //     Counter.count++;
+    //   }
+    
+    //   static getCount():number {
+    //     return this.count; 
+    //   }
+    // }
+
+  // Debug the typecript code without changing the core implementation
+
+
+//  interface Car {
+//     brand: string;
+//     model?: string;
+//     price?: number;
+// }
+
+// function printCarModel(car: Car) {
+//     console.log(car?.model.toUpperCase());
+//     console.log(car?.price.toFixed(2));
+// }
+
+// printCarModel({ brand: "Toyota" , price: 3000});
+
+
+// Changing codes from JavaScript to TypeScript without chainging implementation
+
+type Item = [string,number,boolean,null]
+type MyString = string | number
+
+
+ function processItems (items:Item, callback: (item:MyString) => MyString):MyString[] {
+    return items
+      .filter(item => typeof item === 'string' || typeof item === 'number')
+      .map(item => callback(item));
+  }
+
+  const result = processItems(
+    ["hello", 42, true, null],
+    function (item: string | number) {
+      if (typeof item === "string") return item.toUpperCase();
+      return item * 2;
+    }
+  );
+
+  console.log(result);
 
